@@ -2,41 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Technet Soft Systems - Premium Futuristic Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Premium Dark Theme - Primary */
+    --background: 220 14% 3%;
+    --foreground: 46 87% 88%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Glass Cards */
+    --card: 220 14% 4%;
+    --card-foreground: 46 87% 88%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Popover & Modals */
+    --popover: 220 14% 4%;
+    --popover-foreground: 46 87% 88%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Gold Primary - Luxury gradient */
+    --primary: 45 100% 51%;
+    --primary-foreground: 220 14% 3%;
+    --primary-glow: 45 100% 70%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Steel Secondary */
+    --secondary: 220 14% 8%;
+    --secondary-foreground: 46 87% 88%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted tones */
+    --muted: 220 14% 6%;
+    --muted-foreground: 220 9% 46%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent gold */
+    --accent: 45 100% 51%;
+    --accent-foreground: 220 14% 3%;
 
-    --destructive: 0 84.2% 60.2%;
+    /* Status colors */
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
+    --success: 142 76% 36%;
+    --success-foreground: 355 7% 97%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 220 14% 3%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Glass effects */
+    --border: 220 14% 12%;
+    --input: 220 14% 8%;
+    --ring: 45 100% 51%;
+    --glass-border: 220 14% 20%;
 
-    --radius: 0.5rem;
+    /* Premium effects */
+    --gradient-primary: linear-gradient(135deg, hsl(45 100% 51%), hsl(45 100% 70%));
+    --gradient-secondary: linear-gradient(135deg, hsl(220 14% 8%), hsl(220 14% 12%));
+    --gradient-glass: linear-gradient(135deg, hsl(220 14% 8% / 0.8), hsl(220 14% 12% / 0.6));
+    --gradient-hero: linear-gradient(180deg, hsl(220 14% 3%), hsl(220 14% 6%));
+    
+    /* Crystal effects */
+    --crystal-glow: 0 0 40px hsl(45 100% 51% / 0.15);
+    --crystal-shadow: 0 8px 32px hsl(220 14% 3% / 0.4);
+    --glass-blur: blur(20px);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-micro: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -102,4 +130,64 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer components {
+  /* Glass Card Component */
+  .glass-card {
+    @apply relative bg-gradient-to-br from-card/80 to-card/60;
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: var(--crystal-shadow), inset 0 1px 0 hsl(var(--glass-border));
+  }
+
+  /* Premium Button Variants */
+  .btn-premium {
+    @apply relative overflow-hidden bg-gradient-to-r from-primary to-primary-glow text-primary-foreground;
+    @apply hover:shadow-[var(--crystal-glow)] transition-[var(--transition-smooth)];
+  }
+
+  .btn-glass {
+    @apply glass-card text-foreground hover:bg-secondary/50;
+  }
+
+  /* Crystal Effects */
+  .crystal-glow {
+    box-shadow: var(--crystal-glow);
+  }
+
+  .crystal-border {
+    border: 1px solid hsl(var(--primary) / 0.3);
+    box-shadow: inset 0 1px 0 hsl(var(--primary) / 0.1);
+  }
+}
+
+@layer utilities {
+  /* Animation utilities */
+  .animate-shimmer {
+    animation: shimmer 2s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes glow {
+  0% { box-shadow: var(--crystal-glow); }
+  100% { box-shadow: 0 0 60px hsl(45 100% 51% / 0.3); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
 }
