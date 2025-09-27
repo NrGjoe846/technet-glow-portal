@@ -1,5 +1,5 @@
 import React from 'react';
-import { Download, Share2, Trophy, Calendar, BookOpen, Target } from 'lucide-react';
+import { Download, Share2, Trophy, Calendar, BookOpen, Target, Clock, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
