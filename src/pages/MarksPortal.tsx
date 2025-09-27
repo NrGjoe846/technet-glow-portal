@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { SearchForm } from '@/components/SearchForm';
 import { StudentResult } from '@/components/StudentResult';
 import { Sparkles, Shield, Zap } from 'lucide-react';
-import Spline from '@splinetool/react-spline';
 import heroBackground from '@/assets/hero-background.jpg';
 
 // Sample data - in real app this would come from API
@@ -80,13 +79,25 @@ export const MarksPortal: React.FC = () => {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Spline 3D Hero Background */}
-      <div className="absolute inset-0">
-        <Spline scene="https://prod.spline.design/VQM8ZWXUOMxeFkyy/scene.splinecode" />
-      </div>
+      {/* Crystalline blue gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200" />
       
-      {/* Overlay gradient for better text readability */}
-      <div className="absolute inset-0 bg-gradient-hero opacity-60" />
+      {/* 3D Glass Crystal Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(12)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-blue-400/30 to-blue-600/50 backdrop-blur-sm border border-blue-300/40 rounded-lg shadow-lg animate-float"
+            style={{
+              left: `${20 + (i % 4) * 20}%`,
+              top: `${10 + Math.floor(i / 4) * 30}%`,
+              transform: `rotate(${i * 30}deg) rotateY(${i * 45}deg)`,
+              animationDelay: `${i * 0.5}s`,
+              animationDuration: `${6 + (i % 3)}s`
+            }}
+          />
+        ))}
+      </div>
       
       {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden">

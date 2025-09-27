@@ -6,34 +6,34 @@
 
 @layer base {
   :root {
-    /* Premium Dark Theme - Primary */
-    --background: 220 14% 3%;
-    --foreground: 46 87% 88%;
+    /* Blue Crystal Theme - Light Mode */
+    --background: 210 40% 98%;
+    --foreground: 222 84% 15%;
 
     /* Glass Cards */
-    --card: 220 14% 4%;
-    --card-foreground: 46 87% 88%;
+    --card: 220 20% 95%;
+    --card-foreground: 222 84% 15%;
 
     /* Popover & Modals */
-    --popover: 220 14% 4%;
-    --popover-foreground: 46 87% 88%;
+    --popover: 220 20% 95%;
+    --popover-foreground: 222 84% 15%;
 
-    /* Gold Primary - Luxury gradient */
-    --primary: 45 100% 51%;
-    --primary-foreground: 220 14% 3%;
-    --primary-glow: 45 100% 70%;
+    /* Blue Primary - Crystal blue gradient */
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 217 91% 75%;
 
-    /* Steel Secondary */
-    --secondary: 220 14% 8%;
-    --secondary-foreground: 46 87% 88%;
+    /* Cool Steel Secondary */
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
 
     /* Muted tones */
-    --muted: 220 14% 6%;
-    --muted-foreground: 220 9% 46%;
+    --muted: 217 19% 88%;
+    --muted-foreground: 215 16% 47%;
 
-    /* Accent gold */
-    --accent: 45 100% 51%;
-    --accent-foreground: 220 14% 3%;
+    /* Accent blue */
+    --accent: 216 34% 85%;
+    --accent-foreground: 222 84% 15%;
 
     /* Status colors */
     --destructive: 0 84% 60%;
@@ -44,20 +44,20 @@
     --warning-foreground: 220 14% 3%;
 
     /* Glass effects */
-    --border: 220 14% 12%;
-    --input: 220 14% 8%;
-    --ring: 45 100% 51%;
-    --glass-border: 220 14% 20%;
+    --border: 217 32% 87%;
+    --input: 217 32% 87%;
+    --ring: 217 91% 60%;
+    --glass-border: 217 91% 70%;
 
     /* Premium effects */
-    --gradient-primary: linear-gradient(135deg, hsl(45 100% 51%), hsl(45 100% 70%));
-    --gradient-secondary: linear-gradient(135deg, hsl(220 14% 8%), hsl(220 14% 12%));
-    --gradient-glass: linear-gradient(135deg, hsl(220 14% 8% / 0.8), hsl(220 14% 12% / 0.6));
-    --gradient-hero: linear-gradient(180deg, hsl(220 14% 3%), hsl(220 14% 6%));
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(217 91% 75%));
+    --gradient-secondary: linear-gradient(135deg, hsl(217 32% 17%), hsl(217 19% 88%));
+    --gradient-glass: linear-gradient(135deg, hsl(217 91% 60% / 0.1), hsl(217 91% 75% / 0.2));
+    --gradient-hero: linear-gradient(135deg, hsl(217 32% 17% / 0.1), hsl(217 91% 60% / 0.2));
     
     /* Crystal effects */
-    --crystal-glow: 0 0 40px hsl(45 100% 51% / 0.15);
-    --crystal-shadow: 0 8px 32px hsl(220 14% 3% / 0.4);
+    --crystal-glow: 0 0 40px hsl(217 91% 60% / 0.15);
+    --crystal-shadow: 0 8px 32px hsl(217 91% 60% / 0.2);
     --glass-blur: blur(20px);
     
     /* Transitions */
@@ -67,50 +67,49 @@
     --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    /* Blue Crystal Theme - Dark Mode */
+    --background: 222 84% 4.9%;
     --foreground: 210 40% 98%;
 
-    --card: 222.2 84% 4.9%;
+    --card: 222 84% 4.9%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222.2 84% 4.9%;
+    --popover: 222 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 84% 4.9%;
+    --primary-glow: 217 91% 75%;
 
-    --secondary: 217.2 32.6% 17.5%;
+    --secondary: 217 32% 17%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
+    --muted: 217 32% 17%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 217.2 32.6% 17.5%;
+    --accent: 217 32% 17%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 217 91% 60%;
+    
+    --gradient-hero: linear-gradient(135deg, hsl(222 84% 4.9% / 0.8), hsl(217 32% 17% / 0.9));
+    --gradient-glass: linear-gradient(135deg, hsl(217 91% 60% / 0.1), hsl(217 91% 75% / 0.2));
+    
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -184,7 +183,7 @@
 
 @keyframes glow {
   0% { box-shadow: var(--crystal-glow); }
-  100% { box-shadow: 0 0 60px hsl(45 100% 51% / 0.3); }
+  100% { box-shadow: 0 0 60px hsl(217 91% 60% / 0.3); }
 }
 
 @keyframes float {

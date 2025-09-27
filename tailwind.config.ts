@@ -112,7 +112,7 @@ export default {
         },
         glow: {
           "0%": { boxShadow: "var(--crystal-glow)" },
-          "100%": { boxShadow: "0 0 60px hsl(45 100% 51% / 0.3)" },
+          "100%": { boxShadow: "0 0 60px hsl(217 91% 60% / 0.3)" },
         },
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
