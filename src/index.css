@@ -132,39 +132,151 @@
 }
 
 @layer components {
-  /* Glass Card Component */
+  /* Advanced Glass Card Component */
   .glass-card {
-    @apply relative bg-gradient-to-br from-card/80 to-card/60;
-    backdrop-filter: var(--glass-blur);
-    border: 1px solid hsl(var(--glass-border));
-    box-shadow: var(--crystal-shadow), inset 0 1px 0 hsl(var(--glass-border));
+    @apply relative backdrop-blur-xl bg-white/10 border border-white/20;
+    background: linear-gradient(135deg, 
+      hsl(var(--primary) / 0.08) 0%, 
+      hsl(var(--primary) / 0.04) 50%, 
+      hsl(var(--primary) / 0.08) 100%
+    );
+    box-shadow: 
+      0 8px 32px rgba(31, 38, 135, 0.37),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Premium Button Variants */
-  .btn-premium {
-    @apply relative overflow-hidden bg-gradient-to-r from-primary to-primary-glow text-primary-foreground;
-    @apply hover:shadow-[var(--crystal-glow)] transition-[var(--transition-smooth)];
+  .glass-card:hover {
+    @apply scale-[1.02] shadow-2xl;
+    background: linear-gradient(135deg, 
+      hsl(var(--primary) / 0.12) 0%, 
+      hsl(var(--primary) / 0.08) 50%, 
+      hsl(var(--primary) / 0.12) 100%
+    );
+    box-shadow: 
+      0 12px 40px rgba(31, 38, 135, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      0 2px 0 rgba(255, 255, 255, 0.08);
   }
 
+  /* Interactive Glass Button */
   .btn-glass {
-    @apply glass-card text-foreground hover:bg-secondary/50;
+    @apply relative backdrop-blur-md bg-white/10 border border-white/20 hover:bg-white/20 text-foreground;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+      0 4px 16px rgba(31, 38, 135, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
-  /* Crystal Effects */
-  .crystal-glow {
-    box-shadow: var(--crystal-glow);
+  .btn-glass:hover {
+    @apply scale-105 shadow-lg;
+    box-shadow: 
+      0 8px 25px rgba(31, 38, 135, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
 
+  .btn-glass:active {
+    @apply scale-95;
+  }
+
+  /* Premium Interactive Button */
+  .btn-premium {
+    @apply relative overflow-hidden bg-gradient-to-r from-primary to-primary-glow text-primary-foreground border-0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+      0 4px 20px hsl(var(--primary) / 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .btn-premium::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent;
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+  }
+
+  .btn-premium:hover::before {
+    transform: translateX(100%);
+  }
+
+  .btn-premium:hover {
+    @apply scale-105 shadow-2xl;
+    box-shadow: 
+      0 8px 30px hsl(var(--primary) / 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  .btn-premium:active {
+    @apply scale-95;
+  }
+
+  /* Floating Elements */
+  .floating-element {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .floating-element:nth-child(2n) {
+    animation-delay: -2s;
+  }
+
+  .floating-element:nth-child(3n) {
+    animation-delay: -4s;
+  }
+
+  /* Crystal Border Effect */
   .crystal-border {
-    border: 1px solid hsl(var(--primary) / 0.3);
-    box-shadow: inset 0 1px 0 hsl(var(--primary) / 0.1);
+    @apply border border-primary/30 shadow-lg;
+    box-shadow: 
+      inset 0 1px 0 hsl(var(--primary) / 0.1),
+      0 1px 3px hsl(var(--primary) / 0.2);
+  }
+
+  /* Interactive Input Fields */
+  .glass-input {
+    @apply backdrop-blur-md bg-white/5 border border-white/20 focus:border-primary/50 focus:bg-white/10;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      0 1px 3px rgba(31, 38, 135, 0.2);
+  }
+
+  .glass-input:focus {
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      0 0 0 3px hsl(var(--primary) / 0.2),
+      0 4px 12px rgba(31, 38, 135, 0.3);
+  }
+
+  /* Ripple Effect */
+  .ripple {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  .ripple:active::after {
+    width: 300px;
+    height: 300px;
   }
 }
 
 @layer utilities {
-  /* Animation utilities */
+  /* Enhanced Animation utilities */
   .animate-shimmer {
-    animation: shimmer 2s ease-in-out infinite;
+    animation: shimmer 3s ease-in-out infinite;
   }
 
   .animate-glow {
@@ -173,6 +285,37 @@
 
   .animate-float {
     animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-bounce-subtle {
+    animation: bounce-subtle 2s infinite;
+  }
+}
+
+@keyframes shimmer {
+  0% { 
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% { 
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
   }
 }
 

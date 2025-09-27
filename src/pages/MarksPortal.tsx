@@ -82,18 +82,34 @@ export const MarksPortal: React.FC = () => {
       {/* Crystalline blue gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200" />
       
-      {/* 3D Glass Crystal Elements */}
+      {/* Enhanced 3D Glass Crystal Elements with Interactive Animations */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(12)].map((_, i) => (
+        {[...Array(15)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-blue-400/30 to-blue-600/50 backdrop-blur-sm border border-blue-300/40 rounded-lg shadow-lg animate-float"
+            className="absolute bg-gradient-to-br from-blue-400/20 to-blue-600/40 backdrop-blur-sm border border-blue-300/30 rounded-lg shadow-xl floating-element cursor-pointer hover:scale-110 transition-transform duration-300"
             style={{
-              left: `${20 + (i % 4) * 20}%`,
-              top: `${10 + Math.floor(i / 4) * 30}%`,
-              transform: `rotate(${i * 30}deg) rotateY(${i * 45}deg)`,
-              animationDelay: `${i * 0.5}s`,
-              animationDuration: `${6 + (i % 3)}s`
+              width: `${16 + (i % 3) * 8}px`,
+              height: `${16 + (i % 3) * 8}px`,
+              left: `${15 + (i % 5) * 18}%`,
+              top: `${8 + Math.floor(i / 5) * 25}%`,
+              transform: `rotate(${i * 25}deg) rotateY(${i * 30}deg)`,
+              animationDelay: `${i * 0.4}s`,
+              animationDuration: `${5 + (i % 4)}s`,
+              boxShadow: `
+                0 8px 32px rgba(59, 130, 246, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                0 1px 0 rgba(255, 255, 255, 0.05)
+              `
+            }}
+            onClick={(event) => {
+              // Add ripple effect on click
+              const target = event.currentTarget as HTMLElement;
+              const ripple = document.createElement('div');
+              ripple.className = 'absolute inset-0 bg-white/30 rounded-lg animate-ping';
+              ripple.style.animation = 'ping 0.6s cubic-bezier(0, 0, 0.2, 1)';
+              target.appendChild(ripple);
+              setTimeout(() => ripple.remove(), 600);
             }}
           />
         ))}
@@ -141,32 +157,60 @@ export const MarksPortal: React.FC = () => {
           </div>
         </main>
 
-        {/* Features */}
+        {/* Enhanced Interactive Features Section */}
         <section className="pb-8 px-4">
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="glass-card p-6 text-center animate-fade-in" style={{animationDelay: '200ms'}}>
-                <Shield className="w-8 h-8 text-primary mx-auto mb-3" />
-                <h3 className="font-heading font-semibold text-foreground mb-2">Secure Access</h3>
-                <p className="text-sm text-muted-foreground">
+              <div className="glass-card p-6 text-center group cursor-default" style={{animationDelay: '200ms'}}>
+                <div className="mb-4 relative">
+                  <Shield className="w-8 h-8 text-primary mx-auto group-hover:scale-110 transition-transform duration-300" />
+                  <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <h3 className="font-heading font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                  Secure Access
+                </h3>
+                <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                   Advanced encryption protects your academic data
                 </p>
+                <div className="mt-3 h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
               
-              <div className="glass-card p-6 text-center animate-fade-in" style={{animationDelay: '400ms'}}>
-                <Zap className="w-8 h-8 text-primary mx-auto mb-3" />
-                <h3 className="font-heading font-semibold text-foreground mb-2">Instant Results</h3>
-                <p className="text-sm text-muted-foreground">
+              <div className="glass-card p-6 text-center group cursor-default" style={{animationDelay: '400ms'}}>
+                <div className="mb-4 relative">
+                  <Zap className="w-8 h-8 text-primary mx-auto group-hover:scale-110 group-hover:rotate-12 transition-all duration-300" />
+                  <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <h3 className="font-heading font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                  Instant Results
+                </h3>
+                <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                   Get your marks and transcripts in seconds
                 </p>
+                <div className="mt-3 flex justify-center">
+                  <div className="flex space-x-1">
+                    {[...Array(3)].map((_, i) => (
+                      <div 
+                        key={i}
+                        className="w-2 h-2 bg-primary rounded-full opacity-30 group-hover:opacity-100 transition-opacity duration-300"
+                        style={{ animationDelay: `${i * 0.1}s` }}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
               
-              <div className="glass-card p-6 text-center animate-fade-in" style={{animationDelay: '600ms'}}>
-                <Sparkles className="w-8 h-8 text-primary mx-auto mb-3" />
-                <h3 className="font-heading font-semibold text-foreground mb-2">Beautiful Design</h3>
-                <p className="text-sm text-muted-foreground">
+              <div className="glass-card p-6 text-center group cursor-default" style={{animationDelay: '600ms'}}>
+                <div className="mb-4 relative">
+                  <Sparkles className="w-8 h-8 text-primary mx-auto group-hover:scale-110 group-hover:rotate-180 transition-all duration-500" />
+                  <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <h3 className="font-heading font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                  Beautiful Design
+                </h3>
+                <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                   Premium interface with stunning visual effects
                 </p>
+                <div className="mt-3 h-1 bg-gradient-to-r from-primary via-primary-glow to-primary rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center" />
               </div>
             </div>
           </div>
