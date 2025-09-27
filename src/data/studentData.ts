@@ -58,9 +58,9 @@ export const sampleStudents: StudentData[] = [
     startDate: "MAY.25",
     endDate: "JUL.25",
     certificateNumber: "3274",
-    activeStatus: "75% Pending",
-    overall: "Pending",
-    viva: "Absent",
+    activeStatus: "75% Completed",
+    overall: "Completed",
+    viva: "90",
     finalGrade: "A",
     subjects: [
       { name: "Test 1", code: "PY101", marks: 50, maxMarks: 50, grade: "A+", credits: 2 },
@@ -236,9 +236,9 @@ export const sampleStudents: StudentData[] = [
     startDate: "MAY.25",
     endDate: "JUL.25",
     certificateNumber: "3289",
-    activeStatus: "75% Pending",
-    overall: "Pending",
-    viva: "Absent",
+    activeStatus: "75% Completed",
+    overall: "Completed",
+    viva: "50",
     finalGrade: "B",
     subjects: [
       { name: "Test 1", code: "PY101", marks: 30, maxMarks: 50, grade: "C", credits: 2 },
@@ -326,9 +326,9 @@ export const sampleStudents: StudentData[] = [
     startDate: "MAY.25",
     endDate: "JUL.25",
     certificateNumber: "3288",
-    activeStatus: "50% Pending",
-    overall: "Pending",
-    viva: "Absent",
+    activeStatus: "50% Completed",
+    overall: "Completed",
+    viva: "25",
     finalGrade: "B",
     subjects: [
       { name: "Test 1", code: "PY101", marks: 10, maxMarks: 50, grade: "F", credits: 2 },
@@ -348,9 +348,9 @@ export const sampleStudents: StudentData[] = [
     startDate: "MAY.25",
     endDate: "JUL.25",
     certificateNumber: "3280",
-    activeStatus: "80% Pending",
-    overall: "Pending",
-    viva: "Absent",
+    activeStatus: "80% Completed",
+    overall: "Completed",
+    viva: "50",
     finalGrade: "B",
     subjects: [
       { name: "Test 1", code: "PY101", marks: 30, maxMarks: 50, grade: "C", credits: 2 },
@@ -374,7 +374,7 @@ export const sampleStudents: StudentData[] = [
     certificateNumber: "3287",
     activeStatus: "90% In Progress",
     overall: "In Progress",
-    viva: "Pending",
+    viva: "Completed",
     finalGrade: "A",
     subjects: [
       { name: "Test 1", code: "PY101", marks: 45, maxMarks: 50, grade: "A", credits: 2 },
@@ -382,7 +382,7 @@ export const sampleStudents: StudentData[] = [
       { name: "Test 3", code: "PY103", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
       { name: "Test 4", code: "PY104", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
       { name: "Test 5", code: "PY105", marks: 50, maxMarks: 50, grade: "A+", credits: 3 },
-      { name: "Viva Voice", code: "PY106", marks: 0, maxMarks: 100, grade: "Pending", credits: 1 }
+      { name: "Viva Voice", code: "PY106", marks: 0, maxMarks: 100, grade: "Completed", credits: 1 }
     ]
   }
 ];
