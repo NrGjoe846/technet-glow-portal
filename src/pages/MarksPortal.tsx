@@ -1,98 +1,112 @@
-Got it 👍 You want a **complete project prompt for Lovable (low-code AI dev platform)** so it can scaffold the **Monsoon Travel Assistant** web app for you. Here’s a polished prompt you can paste directly into Lovable:
+import React, { useState } from 'react';
+import { SearchForm } from '@/components/SearchForm';
+import { StudentResult } from '@/components/StudentResult';
+import { sampleStudents, StudentData } from '@/data/studentData';
+import { toast } from '@/hooks/use-toast';
 
----
+export const MarksPortal: React.FC = () => {
+  const [currentStudent, setCurrentStudent] = useState<StudentData | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-# 🌧️ Monsoon Travel Assistant – Complete Prompt for Lovable
+  const handleSearch = async (searchData: { name: string; registerNumber: string }) => {
+    setIsLoading(true);
+    
+    // Simulate API call delay
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    try {
+      // Search for student in the database
+      const student = sampleStudents.find(s => 
+        s.name.toLowerCase().includes(searchData.name.toLowerCase()) &&
+        s.registerNumber.toLowerCase() === searchData.registerNumber.toLowerCase()
+      );
 
-**Project Goal**
-Build a **monsoon-friendly travel assistant web app** that helps users plan **safe and dry travel within the city** by avoiding waterlogged roads, providing alternate routes, and showing transport availability.
+      if (student) {
+        setCurrentStudent(student);
+        toast({
+          title: "Student Found!",
+          description: `Welcome ${student.name}. Your results are ready.`,
+        });
+      } else {
+        toast({
+          title: "Student Not Found",
+          description: "Please check your name and register number and try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Search Error",
+        description: "An error occurred while searching. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
----
+  const handleBack = () => {
+    setCurrentStudent(null);
+  };
 
-## 🔹 Core Features
+  return (
+    <div className="min-h-screen bg-gradient-hero relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-primary/20 rounded-full floating-element"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${i * 0.5}s`,
+              animationDuration: `${3 + (i % 4)}s`
+            }}
+          />
+        ))}
+      </div>
 
-1. **Route Planning (Safe Navigation)**
+      {/* Header */}
+      <header className="relative z-10 p-6 text-center">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-heading font-bold text-foreground mb-4 animate-fade-in">
+            <span className="bg-gradient-primary bg-clip-text text-transparent">
+              Technet Portal
+            </span>
+          </h1>
+          <p className="text-lg md:text-xl text-muted-foreground animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            Premium Student Marks System
+          </p>
+          <div className="mt-4 text-sm text-muted-foreground animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            Powered by <span className="font-semibold text-primary">Technet Soft Systems</span>
+          </div>
+        </div>
+      </header>
 
-   * Input: Source & Destination.
-   * Display route avoiding **flooded/waterlogged roads**.
-   * Use **Leaflet.js (preferred) or Google Maps API**.
+      {/* Main Content */}
+      <main className="relative z-10 flex-1 p-6">
+        <div className="max-w-6xl mx-auto">
+          {currentStudent ? (
+            <StudentResult student={currentStudent} onBack={handleBack} />
+          ) : (
+            <div className="flex items-center justify-center min-h-[60vh]">
+              <SearchForm onSearch={handleSearch} isLoading={isLoading} />
+            </div>
+          )}
+        </div>
+      </main>
 
-2. **Crowd-Sourced Flood Reports**
-
-   * Users can mark/report flooded areas on map.
-   * Store reports in backend DB with:
-
-     * Latitude, Longitude
-     * Severity (Low, Medium, High)
-     * Timestamp & User ID (optional).
-   * Display reports as **red markers** on map.
-
-3. **Alternate Route Suggestions**
-
-   * If main route is blocked, suggest alternate safe paths.
-   * Re-calculate routes dynamically when new reports are added.
-
-4. **Transport Availability Checker (Mock API)**
-
-   * Show real-time (mocked) status for **Autos, Buses, Cabs**.
-   * Example JSON:
-
-     ```json
-     {
-       "auto": "Available",
-       "bus": "Delayed",
-       "cab": "Limited"
-     }
-     ```
-   * Display results in a side panel.
-
-5. **Interactive Map UI**
-
-   * Real-time route overlays.
-   * Flooded road markers.
-   * Option to toggle crowd-sourced flood layers ON/OFF.
-
----
-
-## 🔹 Tech Stack
-
-* **Frontend**: React + TailwindCSS + Leaflet.js
-* **Backend**: Node.js + Express
-* **Database**: MongoDB or PostgreSQL (for reports)
-* **APIs**:
-
-  * Routing: Mapbox Directions API or Google Maps API
-  * Mock transport API (simple JSON endpoint)
-
----
-
-## 🔹 Deliverables
-
-✅ **Frontend + Backend Integration**
-✅ **Interactive Map with Safe Routes**
-✅ **Flood Reporting System (crowd-sourced)**
-✅ **Transport Availability Widget (mock API)**
-✅ **GitHub Repo with Documentation**
-✅ **Deployable Web Version (Vercel + Render)**
-
----
-
-## 🔹 Extra Notes for Lovable
-
-* Scaffold **project structure** with `frontend` and `backend` folders.
-* Provide **boilerplate code** for:
-
-  * React UI with Leaflet map
-  * Express server with `/reports` and `/transport` endpoints
-* Include sample **mock data** for initial testing.
-* Add a clear **README.md** with setup + run instructions.
-
----
-
-⚡ Prompt to paste in Lovable:
-
-> "Build me a **Monsoon Travel Assistant web app** with React + Tailwind + Leaflet frontend and Node.js + Express + MongoDB backend. Features: route planning avoiding flooded roads, crowd-sourced flood reporting, alternate safe route suggestions, and a mock API to check transport availability. Deliverables: interactive map UI, backend APIs, real-time updates (mock allowed), GitHub repo with documentation, and deployable version."
-
----
-
-Do you also want me to **write the first boilerplate code (React + Node + Leaflet)** here, so you can test even before using Lovable?
+      {/* Footer */}
+      <footer className="relative z-10 p-6 text-center">
+        <div className="max-w-4xl mx-auto">
+          <div className="glass-card p-4 inline-block">
+            <p className="text-sm text-muted-foreground">
+              © 2024 Technet Soft Systems. All rights reserved. | Secure • Reliable • Professional
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
