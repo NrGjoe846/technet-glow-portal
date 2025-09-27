@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { SearchForm } from '@/components/SearchForm';
 import { StudentResult } from '@/components/StudentResult';
 import { Sparkles, Shield, Zap } from 'lucide-react';
+import Spline from '@splinetool/react-spline';
 import heroBackground from '@/assets/hero-background.jpg';
 
 // Sample data - in real app this would come from API
@@ -79,19 +80,13 @@ export const MarksPortal: React.FC = () => {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Hero Background */}
-      <div 
-        className="absolute inset-0 opacity-30"
-        style={{
-          backgroundImage: `url(${heroBackground})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      />
+      {/* Spline 3D Hero Background */}
+      <div className="absolute inset-0">
+        <Spline scene="https://prod.spline.design/VQM8ZWXUOMxeFkyy/scene.splinecode" />
+      </div>
       
-      {/* Overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-hero opacity-90" />
+      {/* Overlay gradient for better text readability */}
+      <div className="absolute inset-0 bg-gradient-hero opacity-60" />
       
       {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden">
