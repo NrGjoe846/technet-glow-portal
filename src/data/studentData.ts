@@ -53,7 +53,7 @@ const pythonStudents: StudentData[] = [
   },
   {
     name: "SANTHOSH.S",
-    registerNumber: "Q",
+    registerNumber: "V202505C4701",
     course: "Python Programming",
     semester: "Certificate Course",
     cgpa: 7.8,
@@ -228,7 +228,7 @@ const pythonStudents: StudentData[] = [
     certificateNumber: "3287",
     activeStatus: "90% In Progress",
     overall: "In Progress",
-    viva: null,
+    viva: "Pending",
     subjects: [
       { name: "Python Fundamentals", code: "PY101", marks: 45, maxMarks: 50, grade: "A", credits: 2 },
       { name: "Data Structures", code: "PY102", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
