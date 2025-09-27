@@ -53,7 +53,7 @@ const pythonStudents: StudentData[] = [
   },
   {
     name: "SANTHOSH.S",
-    registerNumber: "V202505C4701",
+    registerNumber: "V202505C4735",
     course: "Python Programming",
     semester: "Certificate Course",
     cgpa: 7.8,
