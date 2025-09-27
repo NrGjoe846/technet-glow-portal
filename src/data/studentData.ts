@@ -1,8 +1,8 @@
-// Student Database with Python Course Data
+// ---------- Interfaces ----------
 export interface Subject {
   name: string;
   code: string;
-  marks: number;
+  marks: number | string;
   maxMarks: number;
   grade: string;
   credits: number;
@@ -12,9 +12,7 @@ export interface StudentData {
   name: string;
   registerNumber: string;
   course: string;
-  semester: string;
-  cgpa: number;
-  attendance: number;
+  type: string;
   subjects: Subject[];
   batch?: string;
   startDate?: string;
@@ -23,18 +21,17 @@ export interface StudentData {
   activeStatus?: string;
   overall?: string;
   viva?: number | string;
+  finalGrade?: string;
 }
 
-// Convert Python course data to our format
-const pythonStudents: StudentData[] = [
+// ---------- Combined Database ----------
+export const sampleStudents: StudentData[] = [
   // Morning Batch (10.45 - 11.45)
   {
     name: "MONISHA.S",
     registerNumber: "V202506C4774",
     course: "Python Programming",
-    semester: "Certificate Course",
-    cgpa: 8.5,
-    attendance: 90,
+    type: "Certificate Course",
     batch: "Morning Batch (10.45 - 11.45)",
     startDate: "JUN.25",
     endDate: "AUG.25",
@@ -42,22 +39,21 @@ const pythonStudents: StudentData[] = [
     activeStatus: "90% Completed",
     overall: "Completed",
     viva: 80,
+    finalGrade: "A",
     subjects: [
-      { name: "Python Fundamentals", code: "PY101", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
-      { name: "Data Structures", code: "PY102", marks: 40, maxMarks: 50, grade: "A", credits: 2 },
-      { name: "Object Oriented Programming", code: "PY103", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
-      { name: "Web Development", code: "PY104", marks: 25, maxMarks: 50, grade: "C+", credits: 2 },
-      { name: "Final Project", code: "PY105", marks: 50, maxMarks: 50, grade: "A+", credits: 3 },
-      { name: "Viva Voce", code: "PY106", marks: 80, maxMarks: 100, grade: "A", credits: 1 }
+      { name: "Test 1", code: "PY101", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
+      { name: "Test 2", code: "PY102", marks: 40, maxMarks: 50, grade: "A", credits: 2 },
+      { name: "Test 3", code: "PY103", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
+      { name: "Test 4", code: "PY104", marks: 25, maxMarks: 50, grade: "C+", credits: 2 },
+      { name: "Test 5", code: "PY105", marks: 50, maxMarks: 50, grade: "A+", credits: 3 },
+      { name: "Viva Voice", code: "PY106", marks: 80, maxMarks: 100, grade: "A", credits: 1 }
     ]
   },
   {
     name: "SANTHOSH.S",
-    registerNumber: "V202505C4735",
+    registerNumber: "V202504C4735",
     course: "Python Programming",
-    semester: "Certificate Course",
-    cgpa: 7.8,
-    attendance: 75,
+    type: "Certificate Course",
     batch: "Morning Batch (10.45 - 11.45)",
     startDate: "MAY.25",
     endDate: "JUL.25",
@@ -65,22 +61,21 @@ const pythonStudents: StudentData[] = [
     activeStatus: "75% Pending",
     overall: "Pending",
     viva: "Absent",
+    finalGrade: "A",
     subjects: [
-      { name: "Python Fundamentals", code: "PY101", marks: 50, maxMarks: 50, grade: "A+", credits: 2 },
-      { name: "Data Structures", code: "PY102", marks: 40, maxMarks: 50, grade: "A", credits: 2 },
-      { name: "Object Oriented Programming", code: "PY103", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
-      { name: "Web Development", code: "PY104", marks: 25, maxMarks: 50, grade: "C+", credits: 2 },
-      { name: "Final Project", code: "PY105", marks: 50, maxMarks: 50, grade: "A+", credits: 3 },
-      { name: "Viva Voce", code: "PY106", marks: 0, maxMarks: 100, grade: "F", credits: 1 }
+      { name: "Test 1", code: "PY101", marks: 50, maxMarks: 50, grade: "A+", credits: 2 },
+      { name: "Test 2", code: "PY102", marks: 40, maxMarks: 50, grade: "A", credits: 2 },
+      { name: "Test 3", code: "PY103", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
+      { name: "Test 4", code: "PY104", marks: 25, maxMarks: 50, grade: "C+", credits: 2 },
+      { name: "Test 5", code: "PY105", marks: 50, maxMarks: 50, grade: "A+", credits: 3 },
+      { name: "Viva Voice", code: "PY106", marks: 0, maxMarks: 100, grade: "F", credits: 1 }
     ]
   },
   {
     name: "PRADEEPA.M",
     registerNumber: "V202503C4707",
     course: "Python Programming",
-    semester: "Certificate Course",
-    cgpa: 6.8,
-    attendance: 80,
+    type: "Certificate Course",
     batch: "Morning Batch (10.45 - 11.45)",
     startDate: "MAY.25",
     endDate: "JUL.25",
@@ -88,22 +83,21 @@ const pythonStudents: StudentData[] = [
     activeStatus: "80% Completed",
     overall: "Completed",
     viva: 65,
+    finalGrade: "B",
     subjects: [
-      { name: "Python Fundamentals", code: "PY101", marks: 15, maxMarks: 50, grade: "D", credits: 2 },
-      { name: "Data Structures", code: "PY102", marks: 24, maxMarks: 50, grade: "C", credits: 2 },
-      { name: "Object Oriented Programming", code: "PY103", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
-      { name: "Web Development", code: "PY104", marks: 25, maxMarks: 50, grade: "C+", credits: 2 },
-      { name: "Final Project", code: "PY105", marks: 45, maxMarks: 50, grade: "A", credits: 3 },
-      { name: "Viva Voce", code: "PY106", marks: 65, maxMarks: 100, grade: "B+", credits: 1 }
+      { name: "Test 1", code: "PY101", marks: 15, maxMarks: 50, grade: "D", credits: 2 },
+      { name: "Test 2", code: "PY102", marks: 24, maxMarks: 50, grade: "C", credits: 2 },
+      { name: "Test 3", code: "PY103", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
+      { name: "Test 4", code: "PY104", marks: 25, maxMarks: 50, grade: "C+", credits: 2 },
+      { name: "Test 5", code: "PY105", marks: 45, maxMarks: 50, grade: "A", credits: 3 },
+      { name: "Viva Voice", code: "PY106", marks: 65, maxMarks: 100, grade: "B+", credits: 1 }
     ]
   },
   {
     name: "DARSANI.T",
     registerNumber: "V202505C4760",
     course: "Python Programming",
-    semester: "Certificate Course",
-    cgpa: 7.2,
-    attendance: 80,
+    type: "Certificate Course",
     batch: "Morning Batch (10.45 - 11.45)",
     startDate: "MAY.25",
     endDate: "JUL.25",
@@ -111,23 +105,45 @@ const pythonStudents: StudentData[] = [
     activeStatus: "80% Completed",
     overall: "Completed",
     viva: 70,
+    finalGrade: "B",
     subjects: [
-      { name: "Python Fundamentals", code: "PY101", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
-      { name: "Data Structures", code: "PY102", marks: 25, maxMarks: 50, grade: "C+", credits: 2 },
-      { name: "Object Oriented Programming", code: "PY103", marks: 25, maxMarks: 50, grade: "C+", credits: 2 },
-      { name: "Web Development", code: "PY104", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
-      { name: "Final Project", code: "PY105", marks: 30, maxMarks: 50, grade: "B", credits: 3 },
-      { name: "Viva Voce", code: "PY106", marks: 70, maxMarks: 100, grade: "B+", credits: 1 }
+      { name: "Test 1", code: "PY101", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
+      { name: "Test 2", code: "PY102", marks: 25, maxMarks: 50, grade: "C+", credits: 2 },
+      { name: "Test 3", code: "PY103", marks: 25, maxMarks: 50, grade: "C+", credits: 2 },
+      { name: "Test 4", code: "PY104", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
+      { name: "Test 5", code: "PY105", marks: 30, maxMarks: 50, grade: "B", credits: 3 },
+      { name: "Viva Voice", code: "PY106", marks: 70, maxMarks: 100, grade: "B+", credits: 1 }
     ]
   },
+  {
+    name: "SAMEERA BANU.M",
+    registerNumber: "V202506C4779",
+    course: "Python Programming",
+    type: "Certificate Course",
+    batch: "Afternoon Batch (3.45 - 4.45)",
+    startDate: "MAY.25",
+    endDate: "JUL.25",
+    certificateNumber: "3277",
+    activeStatus: "75% Completed",
+    overall: "Completed",
+    viva: 60,
+    finalGrade: "A",
+    subjects: [
+      { name: "Test 1", code: "PY101", marks: 38, maxMarks: 50, grade: "B+", credits: 2 },
+      { name: "Test 2", code: "PY102", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
+      { name: "Test 3", code: "PY103", marks: 40, maxMarks: 50, grade: "A", credits: 2 },
+      { name: "Test 4", code: "PY104", marks: 25, maxMarks: 50, grade: "C+", credits: 2 },
+      { name: "Test 5", code: "PY105", marks: 50, maxMarks: 50, grade: "A+", credits: 3 },
+      { name: "Viva Voice", code: "PY106", marks: 60, maxMarks: 100, grade: "B", credits: 1 }
+    ]
+  },
+
   // Afternoon Batch (3.45 - 4.45)
   {
     name: "SUDIPTIKA.J",
     registerNumber: "V202506C4781",
     course: "Python Programming",
-    semester: "Certificate Course",
-    cgpa: 9.0,
-    attendance: 90,
+    type: "Certificate Course",
     batch: "Afternoon Batch (3.45 - 4.45)",
     startDate: "JUN.25",
     endDate: "AUG.25",
@@ -135,22 +151,21 @@ const pythonStudents: StudentData[] = [
     activeStatus: "90% Completed",
     overall: "Completed",
     viva: 90,
+    finalGrade: "A",
     subjects: [
-      { name: "Python Fundamentals", code: "PY101", marks: 50, maxMarks: 50, grade: "A+", credits: 2 },
-      { name: "Data Structures", code: "PY102", marks: 40, maxMarks: 50, grade: "A", credits: 2 },
-      { name: "Object Oriented Programming", code: "PY103", marks: 40, maxMarks: 50, grade: "A", credits: 2 },
-      { name: "Web Development", code: "PY104", marks: 50, maxMarks: 50, grade: "A+", credits: 2 },
-      { name: "Final Project", code: "PY105", marks: 50, maxMarks: 50, grade: "A+", credits: 3 },
-      { name: "Viva Voce", code: "PY106", marks: 90, maxMarks: 100, grade: "A+", credits: 1 }
+      { name: "Test 1", code: "PY101", marks: 50, maxMarks: 50, grade: "A+", credits: 2 },
+      { name: "Test 2", code: "PY102", marks: 40, maxMarks: 50, grade: "A", credits: 2 },
+      { name: "Test 3", code: "PY103", marks: 40, maxMarks: 50, grade: "A", credits: 2 },
+      { name: "Test 4", code: "PY104", marks: 50, maxMarks: 50, grade: "A+", credits: 2 },
+      { name: "Test 5", code: "PY105", marks: 50, maxMarks: 50, grade: "A+", credits: 3 },
+      { name: "Viva Voice", code: "PY106", marks: 90, maxMarks: 100, grade: "A+", credits: 1 }
     ]
   },
   {
     name: "DHARSHINI.V",
     registerNumber: "V202506C4773",
     course: "Python Programming",
-    semester: "Certificate Course",
-    cgpa: 7.0,
-    attendance: 75,
+    type: "Certificate Course",
     batch: "Afternoon Batch (3.45 - 4.45)",
     startDate: "JUN.25",
     endDate: "AUG.25",
@@ -158,22 +173,21 @@ const pythonStudents: StudentData[] = [
     activeStatus: "75% Completed",
     overall: "Completed",
     viva: 75,
+    finalGrade: "B",
     subjects: [
-      { name: "Python Fundamentals", code: "PY101", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
-      { name: "Data Structures", code: "PY102", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
-      { name: "Object Oriented Programming", code: "PY103", marks: 10, maxMarks: 50, grade: "F", credits: 2 },
-      { name: "Web Development", code: "PY104", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
-      { name: "Final Project", code: "PY105", marks: 45, maxMarks: 50, grade: "A", credits: 3 },
-      { name: "Viva Voce", code: "PY106", marks: 75, maxMarks: 100, grade: "A", credits: 1 }
+      { name: "Test 1", code: "PY101", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
+      { name: "Test 2", code: "PY102", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
+      { name: "Test 3", code: "PY103", marks: 10, maxMarks: 50, grade: "F", credits: 2 },
+      { name: "Test 4", code: "PY104", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
+      { name: "Test 5", code: "PY105", marks: 45, maxMarks: 50, grade: "A", credits: 3 },
+      { name: "Viva Voice", code: "PY106", marks: 75, maxMarks: 100, grade: "A", credits: 1 }
     ]
   },
   {
     name: "PRANAV.G",
     registerNumber: "V202506C4776",
     course: "Python Programming",
-    semester: "Certificate Course",
-    cgpa: 8.2,
-    attendance: 80,
+    type: "Certificate Course",
     batch: "Afternoon Batch (3.45 - 4.45)",
     startDate: "JUN.25",
     endDate: "AUG.25",
@@ -181,23 +195,67 @@ const pythonStudents: StudentData[] = [
     activeStatus: "80% Completed",
     overall: "Completed",
     viva: 70,
+    finalGrade: "A",
     subjects: [
-      { name: "Python Fundamentals", code: "PY101", marks: 50, maxMarks: 50, grade: "A+", credits: 2 },
-      { name: "Data Structures", code: "PY102", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
-      { name: "Object Oriented Programming", code: "PY103", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
-      { name: "Web Development", code: "PY104", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
-      { name: "Final Project", code: "PY105", marks: 40, maxMarks: 50, grade: "A", credits: 3 },
-      { name: "Viva Voce", code: "PY106", marks: 70, maxMarks: 100, grade: "B+", credits: 1 }
+      { name: "Test 1", code: "PY101", marks: 50, maxMarks: 50, grade: "A+", credits: 2 },
+      { name: "Test 2", code: "PY102", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
+      { name: "Test 3", code: "PY103", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
+      { name: "Test 4", code: "PY104", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
+      { name: "Test 5", code: "PY105", marks: 40, maxMarks: 50, grade: "A", credits: 3 },
+      { name: "Viva Voice", code: "PY106", marks: 70, maxMarks: 100, grade: "B+", credits: 1 }
     ]
   },
-  // Evening Batch (6.45 - 7.45)
+  {
+    name: "YOGESH KUMAR.S",
+    registerNumber: "V202506C4778",
+    course: "Python Programming",
+    type: "Certificate Course",
+    batch: "Afternoon Batch (3.45 - 4.45)",
+    startDate: "JUN.25",
+    endDate: "AUG.25",
+    certificateNumber: "3279",
+    activeStatus: "95% Completed",
+    overall: "Completed",
+    viva: 95,
+    finalGrade: "O",
+    subjects: [
+      { name: "Test 1", code: "PY101", marks: 50, maxMarks: 50, grade: "A+", credits: 2 },
+      { name: "Test 2", code: "PY102", marks: 50, maxMarks: 50, grade: "A+", credits: 2 },
+      { name: "Test 3", code: "PY103", marks: 45, maxMarks: 50, grade: "A", credits: 2 },
+      { name: "Test 4", code: "PY104", marks: 50, maxMarks: 50, grade: "A+", credits: 2 },
+      { name: "Test 5", code: "PY105", marks: 50, maxMarks: 50, grade: "A+", credits: 3 },
+      { name: "Viva Voice", code: "PY106", marks: 95, maxMarks: 100, grade: "A+", credits: 1 }
+    ]
+  },
+  {
+    name: "JAYAKARTHICK.A",
+    registerNumber: "V202504C4757",
+    course: "Python Programming",
+    type: "Certificate Course",
+    batch: "Afternoon Batch (3.45 - 4.45)",
+    startDate: "MAY.25",
+    endDate: "JUL.25",
+    certificateNumber: "3289",
+    activeStatus: "75% Pending",
+    overall: "Pending",
+    viva: "Absent",
+    finalGrade: "B",
+    subjects: [
+      { name: "Test 1", code: "PY101", marks: 30, maxMarks: 50, grade: "C", credits: 2 },
+      { name: "Test 2", code: "PY102", marks: 30, maxMarks: 50, grade: "C", credits: 2 },
+      { name: "Test 3", code: "PY103", marks: 15, maxMarks: 50, grade: "F", credits: 2 },
+      { name: "Test 4", code: "PY104", marks: 15, maxMarks: 50, grade: "F", credits: 2 },
+      { name: "Test 5", code: "PY105", marks: 0, maxMarks: 50, grade: "F", credits: 3 },
+      { name: "Viva Voice", code: "PY106", marks: 0, maxMarks: 100, grade: "F", credits: 1 }
+    ]
+  },
+
+  // Evening Batch
   {
     name: "ROSHINI.S",
     registerNumber: "V202505C4763",
     course: "Python Programming",
-    semester: "Certificate Course",
-    cgpa: 8.0,
-    attendance: 80,
+    type: "Certificate Course",
     batch: "Evening Batch (6.45 - 7.45)",
     startDate: "MAY.25",
     endDate: "JUL.25",
@@ -205,23 +263,111 @@ const pythonStudents: StudentData[] = [
     activeStatus: "80% Completed",
     overall: "Completed",
     viva: 75,
+    finalGrade: "A",
     subjects: [
-      { name: "Python Fundamentals", code: "PY101", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
-      { name: "Data Structures", code: "PY102", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
-      { name: "Object Oriented Programming", code: "PY103", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
-      { name: "Web Development", code: "PY104", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
-      { name: "Final Project", code: "PY105", marks: 45, maxMarks: 50, grade: "A", credits: 3 },
-      { name: "Viva Voce", code: "PY106", marks: 75, maxMarks: 100, grade: "A", credits: 1 }
+      { name: "Test 1", code: "PY101", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
+      { name: "Test 2", code: "PY102", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
+      { name: "Test 3", code: "PY103", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
+      { name: "Test 4", code: "PY104", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
+      { name: "Test 5", code: "PY105", marks: 45, maxMarks: 50, grade: "A", credits: 3 },
+      { name: "Viva Voice", code: "PY106", marks: 75, maxMarks: 100, grade: "A", credits: 1 }
     ]
   },
+  {
+    name: "KEERTHI VARSHA.G",
+    registerNumber: "V202505C4769",
+    course: "Python Programming",
+    type: "Certificate Course",
+    batch: "Evening Batch (6.45 - 7.45)",
+    startDate: "MAY.25",
+    endDate: "JUL.25",
+    certificateNumber: "3281",
+    activeStatus: "90% Completed",
+    overall: "Completed",
+    viva: 80,
+    finalGrade: "A",
+    subjects: [
+      { name: "Test 1", code: "PY101", marks: 50, maxMarks: 50, grade: "A+", credits: 2 },
+      { name: "Test 2", code: "PY102", marks: 40, maxMarks: 50, grade: "A", credits: 2 },
+      { name: "Test 3", code: "PY103", marks: 45, maxMarks: 50, grade: "A", credits: 2 },
+      { name: "Test 4", code: "PY104", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
+      { name: "Test 5", code: "PY105", marks: 48, maxMarks: 50, grade: "A", credits: 3 },
+      { name: "Viva Voice", code: "PY106", marks: 80, maxMarks: 100, grade: "A", credits: 1 }
+    ]
+  },
+  {
+    name: "MOHIT KUMAR.A",
+    registerNumber: "V202404C4611",
+    course: "Python Programming",
+    type: "Certificate Course",
+    batch: "Evening Batch (6.45 - 7.45)",
+    startDate: "MAY.25",
+    endDate: "JUL.25",
+    certificateNumber: "3286",
+    activeStatus: "80% Completed",
+    overall: "Completed",
+    viva: 70,
+    finalGrade: "A",
+    subjects: [
+      { name: "Test 1", code: "PY101", marks: 50, maxMarks: 50, grade: "A+", credits: 2 },
+      { name: "Test 2", code: "PY102", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
+      { name: "Test 3", code: "PY103", marks: 25, maxMarks: 50, grade: "C", credits: 2 },
+      { name: "Test 4", code: "PY104", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
+      { name: "Test 5", code: "PY105", marks: 40, maxMarks: 50, grade: "A", credits: 3 },
+      { name: "Viva Voice", code: "PY106", marks: 70, maxMarks: 100, grade: "B+", credits: 1 }
+    ]
+  },
+  {
+    name: "ZAFAR KHAN.D",
+    registerNumber: "V202504C4748",
+    course: "Python Programming",
+    type: "Certificate Course",
+    batch: "Evening Batch (6.45 - 7.45)",
+    startDate: "MAY.25",
+    endDate: "JUL.25",
+    certificateNumber: "3288",
+    activeStatus: "50% Pending",
+    overall: "Pending",
+    viva: "Absent",
+    finalGrade: "B",
+    subjects: [
+      { name: "Test 1", code: "PY101", marks: 10, maxMarks: 50, grade: "F", credits: 2 },
+      { name: "Test 2", code: "PY102", marks: 20, maxMarks: 50, grade: "D", credits: 2 },
+      { name: "Test 3", code: "PY103", marks: 20, maxMarks: 50, grade: "D", credits: 2 },
+      { name: "Test 4", code: "PY104", marks: 20, maxMarks: 50, grade: "D", credits: 2 },
+      { name: "Test 5", code: "PY105", marks: 25, maxMarks: 50, grade: "C", credits: 3 },
+      { name: "Viva Voice", code: "PY106", marks: 0, maxMarks: 100, grade: "F", credits: 1 }
+    ]
+  },
+  {
+    name: "SAMUNDEESWARI.S",
+    registerNumber: "V202505C4756",
+    course: "Python Programming",
+    type: "Certificate Course",
+    batch: "Evening Batch (6.45 - 7.45)",
+    startDate: "MAY.25",
+    endDate: "JUL.25",
+    certificateNumber: "3280",
+    activeStatus: "80% Pending",
+    overall: "Pending",
+    viva: "Absent",
+    finalGrade: "B",
+    subjects: [
+      { name: "Test 1", code: "PY101", marks: 30, maxMarks: 50, grade: "C", credits: 2 },
+      { name: "Test 2", code: "PY102", marks: 30, maxMarks: 50, grade: "C", credits: 2 },
+      { name: "Test 3", code: "PY103", marks: 20, maxMarks: 50, grade: "D", credits: 2 },
+      { name: "Test 4", code: "PY104", marks: 30, maxMarks: 50, grade: "C", credits: 2 },
+      { name: "Test 5", code: "PY105", marks: 0, maxMarks: 50, grade: "F", credits: 3 },
+      { name: "Viva Voice", code: "PY106", marks: 0, maxMarks: 100, grade: "F", credits: 1 }
+    ]
+  },
+
   // Morning Batch (9.45 - 11.45)
   {
     name: "ANIRUDH.S",
     registerNumber: "V202506C4771",
     course: "Python Programming",
-    semester: "Certificate Course",
-    cgpa: 8.5,
-    attendance: 90,
+    type: "Certificate Course",
     batch: "Morning Batch (9.45 - 11.45)",
     startDate: "JUL.25",
     endDate: "SEP.25",
@@ -229,49 +375,14 @@ const pythonStudents: StudentData[] = [
     activeStatus: "90% In Progress",
     overall: "In Progress",
     viva: "Pending",
+    finalGrade: "A",
     subjects: [
-      { name: "Python Fundamentals", code: "PY101", marks: 45, maxMarks: 50, grade: "A", credits: 2 },
-      { name: "Data Structures", code: "PY102", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
-      { name: "Object Oriented Programming", code: "PY103", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
-      { name: "Web Development", code: "PY104", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
-      { name: "Final Project", code: "PY105", marks: 50, maxMarks: 50, grade: "A+", credits: 3 },
-      { name: "Viva Voce", code: "PY106", marks: 0, maxMarks: 100, grade: "Pending", credits: 1 }
+      { name: "Test 1", code: "PY101", marks: 45, maxMarks: 50, grade: "A", credits: 2 },
+      { name: "Test 2", code: "PY102", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
+      { name: "Test 3", code: "PY103", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
+      { name: "Test 4", code: "PY104", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
+      { name: "Test 5", code: "PY105", marks: 50, maxMarks: 50, grade: "A+", credits: 3 },
+      { name: "Viva Voice", code: "PY106", marks: 0, maxMarks: 100, grade: "Pending", credits: 1 }
     ]
   }
 ];
-
-// Original sample students (keeping for backward compatibility)
-const originalStudents: StudentData[] = [
-  {
-    name: "Arjun Patel",
-    registerNumber: "21CS001",
-    course: "Computer Science Engineering",
-    semester: "6",
-    cgpa: 8.7,
-    attendance: 92,
-    subjects: [
-      { name: "Data Structures", code: "CS301", marks: 87, maxMarks: 100, grade: "A", credits: 4 },
-      { name: "Database Systems", code: "CS302", marks: 92, maxMarks: 100, grade: "A+", credits: 4 },
-      { name: "Computer Networks", code: "CS303", marks: 78, maxMarks: 100, grade: "B+", credits: 3 },
-      { name: "Software Engineering", code: "CS304", marks: 85, maxMarks: 100, grade: "A", credits: 3 },
-      { name: "Algorithm Analysis", code: "CS305", marks: 90, maxMarks: 100, grade: "A+", credits: 4 }
-    ]
-  },
-  {
-    name: "Priya Sharma",
-    registerNumber: "21EC015",
-    course: "Electronics & Communication",
-    semester: "4",
-    cgpa: 9.1,
-    attendance: 88,
-    subjects: [
-      { name: "Digital Electronics", code: "EC201", marks: 94, maxMarks: 100, grade: "A+", credits: 4 },
-      { name: "Signals & Systems", code: "EC202", marks: 89, maxMarks: 100, grade: "A", credits: 4 },
-      { name: "Communication Theory", code: "EC203", marks: 91, maxMarks: 100, grade: "A+", credits: 3 },
-      { name: "Microprocessors", code: "EC204", marks: 86, maxMarks: 100, grade: "A", credits: 3 }
-    ]
-  }
-];
-
-// Combined student database
-export const sampleStudents: StudentData[] = [...pythonStudents, ...originalStudents];
