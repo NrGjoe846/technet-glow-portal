@@ -102,7 +102,7 @@ export const MarksPortal: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           <div className="glass-card p-4 inline-block">
             <p className="text-sm text-muted-foreground">
-              © 2024 Technet Soft Systems. All rights reserved. | Secure • Reliable • Professional
+              © 2024 Technet Soft Systems. All rights reserved. | Developed by Nehemiah Nesanathan
             </p>
           </div>
         </div>
