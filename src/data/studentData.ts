@@ -386,3 +386,170 @@ export const sampleStudents: StudentData[] = [
     ]
   }
 ];
+
+// AI Course Students
+export const aiStudents: StudentData[] = [
+  {
+    name: "DARSANI.T",
+    registerNumber: "V202505C4760",
+    course: "Artificial Intelligence",
+    type: "Certificate Course",
+    batch: "AI Batch (AUG - OCT)",
+    startDate: "AUG.25",
+    endDate: "OCT.25",
+    certificateNumber: "3290",
+    activeStatus: "100% Completed",
+    overall: "Completed",
+    finalGrade: "B",
+    subjects: [
+      { name: "Titanic Survival Prediction", code: "AI101", marks: 85, maxMarks: 100, grade: "B+", credits: 3 },
+      { name: "IMDB Movie Rating Prediction", code: "AI102", marks: 80, maxMarks: 100, grade: "B", credits: 3 },
+      { name: "Iris Flower Classifier", code: "AI103", marks: 82, maxMarks: 100, grade: "B+", credits: 3 },
+      { name: "Sales Prediction", code: "AI104", marks: 78, maxMarks: 100, grade: "B", credits: 3 },
+      { name: "Credit Card Fraud Classification", code: "AI105", marks: 85, maxMarks: 100, grade: "B+", credits: 3 }
+    ]
+  },
+  {
+    name: "KEERTHI VARSHA.G",
+    registerNumber: "V202505C4769",
+    course: "Artificial Intelligence",
+    type: "Certificate Course",
+    batch: "AI Batch (AUG - OCT)",
+    startDate: "AUG.25",
+    endDate: "OCT.25",
+    certificateNumber: "3291",
+    activeStatus: "100% Completed",
+    overall: "Completed",
+    finalGrade: "A",
+    subjects: [
+      { name: "Titanic Survival Prediction", code: "AI101", marks: 92, maxMarks: 100, grade: "A+", credits: 3 },
+      { name: "IMDB Movie Rating Prediction", code: "AI102", marks: 88, maxMarks: 100, grade: "A", credits: 3 },
+      { name: "Iris Flower Classifier", code: "AI103", marks: 90, maxMarks: 100, grade: "A", credits: 3 },
+      { name: "Sales Prediction", code: "AI104", marks: 85, maxMarks: 100, grade: "B+", credits: 3 },
+      { name: "Credit Card Fraud Classification", code: "AI105", marks: 89, maxMarks: 100, grade: "A", credits: 3 }
+    ]
+  },
+  {
+    name: "PRADEEPA.M",
+    registerNumber: "V202503C4707",
+    course: "Artificial Intelligence",
+    type: "Certificate Course",
+    batch: "AI Batch (AUG - OCT)",
+    startDate: "AUG.25",
+    endDate: "OCT.25",
+    certificateNumber: "3292",
+    activeStatus: "100% Completed",
+    overall: "Completed",
+    finalGrade: "B",
+    subjects: [
+      { name: "Titanic Survival Prediction", code: "AI101", marks: 80, maxMarks: 100, grade: "B", credits: 3 },
+      { name: "IMDB Movie Rating Prediction", code: "AI102", marks: 75, maxMarks: 100, grade: "B", credits: 3 },
+      { name: "Iris Flower Classifier", code: "AI103", marks: 78, maxMarks: 100, grade: "B", credits: 3 },
+      { name: "Sales Prediction", code: "AI104", marks: 82, maxMarks: 100, grade: "B+", credits: 3 },
+      { name: "Credit Card Fraud Classification", code: "AI105", marks: 79, maxMarks: 100, grade: "B", credits: 3 }
+    ]
+  },
+  {
+    name: "ROSHINI.S",
+    registerNumber: "V202505C4763",
+    course: "Artificial Intelligence",
+    type: "Certificate Course",
+    batch: "AI Batch (AUG - OCT)",
+    startDate: "AUG.25",
+    endDate: "OCT.25",
+    certificateNumber: "3293",
+    activeStatus: "100% Completed",
+    overall: "Completed",
+    finalGrade: "A",
+    subjects: [
+      { name: "Titanic Survival Prediction", code: "AI101", marks: 90, maxMarks: 100, grade: "A", credits: 3 },
+      { name: "IMDB Movie Rating Prediction", code: "AI102", marks: 87, maxMarks: 100, grade: "A", credits: 3 },
+      { name: "Iris Flower Classifier", code: "AI103", marks: 89, maxMarks: 100, grade: "A", credits: 3 },
+      { name: "Sales Prediction", code: "AI104", marks: 86, maxMarks: 100, grade: "A", credits: 3 },
+      { name: "Credit Card Fraud Classification", code: "AI105", marks: 88, maxMarks: 100, grade: "A", credits: 3 }
+    ]
+  },
+  {
+    name: "SAMEERA BANU.M",
+    registerNumber: "V202506C4779",
+    course: "Artificial Intelligence",
+    type: "Certificate Course",
+    batch: "AI Batch (AUG - OCT)",
+    startDate: "AUG.25",
+    endDate: "OCT.25",
+    certificateNumber: "3294",
+    activeStatus: "100% Completed",
+    overall: "Completed",
+    finalGrade: "B",
+    subjects: [
+      { name: "Titanic Survival Prediction", code: "AI101", marks: 83, maxMarks: 100, grade: "B+", credits: 3 },
+      { name: "IMDB Movie Rating Prediction", code: "AI102", marks: 79, maxMarks: 100, grade: "B", credits: 3 },
+      { name: "Iris Flower Classifier", code: "AI103", marks: 81, maxMarks: 100, grade: "B+", credits: 3 },
+      { name: "Sales Prediction", code: "AI104", marks: 77, maxMarks: 100, grade: "B", credits: 3 },
+      { name: "Credit Card Fraud Classification", code: "AI105", marks: 84, maxMarks: 100, grade: "B+", credits: 3 }
+    ]
+  },
+  {
+    name: "SAMUNDEESWARI.S",
+    registerNumber: "V202505C4756",
+    course: "Artificial Intelligence",
+    type: "Certificate Course",
+    batch: "AI Batch (AUG - OCT)",
+    startDate: "AUG.25",
+    endDate: "OCT.25",
+    certificateNumber: "3295",
+    activeStatus: "100% Completed",
+    overall: "Completed",
+    finalGrade: "A",
+    subjects: [
+      { name: "Titanic Survival Prediction", code: "AI101", marks: 91, maxMarks: 100, grade: "A+", credits: 3 },
+      { name: "IMDB Movie Rating Prediction", code: "AI102", marks: 86, maxMarks: 100, grade: "A", credits: 3 },
+      { name: "Iris Flower Classifier", code: "AI103", marks: 88, maxMarks: 100, grade: "A", credits: 3 },
+      { name: "Sales Prediction", code: "AI104", marks: 89, maxMarks: 100, grade: "A", credits: 3 },
+      { name: "Credit Card Fraud Classification", code: "AI105", marks: 87, maxMarks: 100, grade: "A", credits: 3 }
+    ]
+  },
+  {
+    name: "SANTHOSH.S",
+    registerNumber: "V202504C4735",
+    course: "Artificial Intelligence",
+    type: "Certificate Course",
+    batch: "AI Batch (AUG - OCT)",
+    startDate: "AUG.25",
+    endDate: "OCT.25",
+    certificateNumber: "3296",
+    activeStatus: "100% Completed",
+    overall: "Completed",
+    finalGrade: "O",
+    subjects: [
+      { name: "Titanic Survival Prediction", code: "AI101", marks: 98, maxMarks: 100, grade: "A+", credits: 3 },
+      { name: "IMDB Movie Rating Prediction", code: "AI102", marks: 95, maxMarks: 100, grade: "A+", credits: 3 },
+      { name: "Iris Flower Classifier", code: "AI103", marks: 97, maxMarks: 100, grade: "A+", credits: 3 },
+      { name: "Sales Prediction", code: "AI104", marks: 94, maxMarks: 100, grade: "A+", credits: 3 },
+      { name: "Credit Card Fraud Classification", code: "AI105", marks: 96, maxMarks: 100, grade: "A+", credits: 3 }
+    ]
+  },
+  {
+    name: "YOGESH KUMAR.S",
+    registerNumber: "V202506C4778",
+    course: "Artificial Intelligence",
+    type: "Certificate Course",
+    batch: "AI Batch (AUG - OCT)",
+    startDate: "AUG.25",
+    endDate: "OCT.25",
+    certificateNumber: "3297",
+    activeStatus: "100% Completed",
+    overall: "Completed",
+    finalGrade: "O",
+    subjects: [
+      { name: "Titanic Survival Prediction", code: "AI101", marks: 99, maxMarks: 100, grade: "A+", credits: 3 },
+      { name: "IMDB Movie Rating Prediction", code: "AI102", marks: 96, maxMarks: 100, grade: "A+", credits: 3 },
+      { name: "Iris Flower Classifier", code: "AI103", marks: 98, maxMarks: 100, grade: "A+", credits: 3 },
+      { name: "Sales Prediction", code: "AI104", marks: 97, maxMarks: 100, grade: "A+", credits: 3 },
+      { name: "Credit Card Fraud Classification", code: "AI105", marks: 95, maxMarks: 100, grade: "A+", credits: 3 }
+    ]
+  }
+];
+
+// Combined database for search
+export const allStudents: StudentData[] = [...sampleStudents, ...aiStudents];
