@@ -1,9 +1,10 @@
 import React from 'react';
-import { Download, Share2, Trophy, Calendar, BookOpen, Target, Clock, Award } from 'lucide-react';
+import { Download, Share2, Trophy, Calendar, BookOpen, Target, Clock, Award, Brain, Code } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
+import { Switch } from '@/components/ui/switch';
 import { StudentData } from '@/data/studentData';
 
 interface StudentResultProps {
@@ -14,6 +15,9 @@ interface StudentResultProps {
 export const StudentResult: React.FC<StudentResultProps> = ({ student, onBack }) => {
   const totalCredits = student.subjects.reduce((sum, subject) => sum + subject.credits, 0);
   const percentage = (student.subjects.reduce((sum, subject) => sum + (subject.marks / subject.maxMarks) * subject.credits, 0) / totalCredits) * 100;
+  
+  // Determine if this is an AI course based on the course name
+  const isAICourse = student.course.toLowerCase().includes('artificial intelligence') || student.course.toLowerCase().includes('ai');
 
   const getGradeColor = (grade: string) => {
     switch (grade) {
@@ -28,10 +32,37 @@ export const StudentResult: React.FC<StudentResultProps> = ({ student, onBack })
     <div className="w-full max-w-4xl mx-auto animate-fade-in">
       {/* Header Card */}
       <Card className="glass-card p-6 mb-6">
+        {/* Course Toggle */}
+        <div className="flex justify-center mb-6">
+          <div className="glass-card p-4 inline-flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <Code className={`w-5 h-5 ${!isAICourse ? 'text-primary' : 'text-muted-foreground'}`} />
+              <span className={`font-medium ${!isAICourse ? 'text-primary' : 'text-muted-foreground'}`}>
+                Python
+              </span>
+            </div>
+            <Switch 
+              checked={isAICourse} 
+              disabled={true}
+              className="data-[state=checked]:bg-primary"
+            />
+            <div className="flex items-center gap-2">
+              <Brain className={`w-5 h-5 ${isAICourse ? 'text-primary' : 'text-muted-foreground'}`} />
+              <span className={`font-medium ${isAICourse ? 'text-primary' : 'text-muted-foreground'}`}>
+                AI
+              </span>
+            </div>
+          </div>
+        </div>
+
         <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
           <div className="flex-shrink-0">
             <div className="w-20 h-20 rounded-full crystal-border bg-gradient-secondary flex items-center justify-center">
-              <BookOpen className="w-10 h-10 text-primary" />
+              {isAICourse ? (
+                <Brain className="w-10 h-10 text-primary" />
+              ) : (
+                <Code className="w-10 h-10 text-primary" />
+              )}
             </div>
           </div>
           
@@ -45,7 +76,7 @@ export const StudentResult: React.FC<StudentResultProps> = ({ student, onBack })
             <div className="flex flex-wrap gap-2 mb-4">
               <Badge className="crystal-border">
                 <Calendar className="w-3 h-3 mr-1" />
-                {student.semester}
+                {student.startDate} - {student.endDate}
               </Badge>
               {student.batch && (
                 <Badge className="crystal-border">
@@ -55,11 +86,11 @@ export const StudentResult: React.FC<StudentResultProps> = ({ student, onBack })
               )}
               <Badge className="crystal-border">
                 <Trophy className="w-3 h-3 mr-1" />
-                CGPA: {student.cgpa}/10
+                Grade: {student.finalGrade}
               </Badge>
               <Badge className="crystal-border">
                 <Target className="w-3 h-3 mr-1" />
-                {student.attendance}% Attendance
+                {student.activeStatus}
               </Badge>
               {student.certificateNumber && (
                 <Badge className="crystal-border">
@@ -95,32 +126,34 @@ export const StudentResult: React.FC<StudentResultProps> = ({ student, onBack })
         
         <Card className="glass-card p-6 text-center">
           <div className="text-3xl font-bold text-primary mb-1">
-            {student.cgpa}
+            {student.finalGrade}
           </div>
-          <p className="text-muted-foreground">Current CGPA</p>
-          <Progress value={student.cgpa * 10} className="mt-3 h-2" />
+          <p className="text-muted-foreground">Final Grade</p>
+          <Progress value={percentage} className="mt-3 h-2" />
         </Card>
         
         <Card className="glass-card p-6 text-center">
           <div className="text-3xl font-bold text-primary mb-1">
-            {student.attendance}%
+            100%
           </div>
-          <p className="text-muted-foreground">Attendance</p>
-          <Progress value={student.attendance} className="mt-3 h-2" />
+          <p className="text-muted-foreground">Completion</p>
+          <Progress value={100} className="mt-3 h-2" />
         </Card>
       </div>
 
       {/* Subjects Table */}
       <Card className="glass-card p-6">
         <h3 className="text-xl font-heading font-bold mb-4 text-foreground">
-          Subject-wise Performance
+          {isAICourse ? 'Project-wise Performance' : 'Subject-wise Performance'}
         </h3>
         
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
               <tr className="border-b border-border">
-                <th className="text-left py-3 px-2 font-semibold text-muted-foreground">Subject</th>
+                <th className="text-left py-3 px-2 font-semibold text-muted-foreground">
+                  {isAICourse ? 'Project' : 'Subject'}
+                </th>
                 <th className="text-center py-3 px-2 font-semibold text-muted-foreground">Code</th>
                 <th className="text-center py-3 px-2 font-semibold text-muted-foreground">Marks</th>
                 <th className="text-center py-3 px-2 font-semibold text-muted-foreground">Grade</th>
