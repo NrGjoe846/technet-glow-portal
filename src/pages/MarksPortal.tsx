@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SearchForm } from '@/components/SearchForm';
 import { StudentResult } from '@/components/StudentResult';
-import { sampleStudents, StudentData } from '@/data/studentData';
+import { allStudents, StudentData } from '@/data/studentData';
 import { toast } from '@/hooks/use-toast';
 
 export const MarksPortal: React.FC = () => {
@@ -16,7 +16,7 @@ export const MarksPortal: React.FC = () => {
     
     try {
       // Search for student in the database
-      const student = sampleStudents.find(s => 
+      const student = allStudents.find(s => 
         s.name.toLowerCase().includes(searchData.name.toLowerCase()) &&
         s.registerNumber.toLowerCase() === searchData.registerNumber.toLowerCase()
       );
