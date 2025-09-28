@@ -1,23 +1,55 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Download, Share2, Trophy, Calendar, BookOpen, Target, Clock, Award, Brain, Code } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Switch } from '@/components/ui/switch';
-import { StudentData } from '@/data/studentData';
+import { StudentData, allStudents } from '@/data/studentData';
 
 interface StudentResultProps {
   student: StudentData;
   onBack: () => void;
 }
 
-export const StudentResult: React.FC<StudentResultProps> = ({ student, onBack }) => {
-  const totalCredits = student.subjects.reduce((sum, subject) => sum + subject.credits, 0);
-  const percentage = (student.subjects.reduce((sum, subject) => sum + (subject.marks / subject.maxMarks) * subject.credits, 0) / totalCredits) * 100;
+export const StudentResult: React.FC<StudentResultProps> = ({ student: initialStudent, onBack }) => {
+  const [currentStudent, setCurrentStudent] = useState<StudentData>(initialStudent);
+  const [isAICourse, setIsAICourse] = useState(false);
   
-  // Determine if this is an AI course based on the course name
-  const isAICourse = student.course.toLowerCase().includes('artificial intelligence') || student.course.toLowerCase().includes('ai');
+  // Find both Python and AI courses for this student
+  const studentPythonCourse = allStudents.find(s => 
+    s.registerNumber === initialStudent.registerNumber && 
+    s.course.toLowerCase().includes('python')
+  );
+  
+  const studentAICourse = allStudents.find(s => 
+    s.registerNumber === initialStudent.registerNumber && 
+    s.course.toLowerCase().includes('artificial intelligence')
+  );
+
+  // Check if student has both courses
+  const hasBothCourses = studentPythonCourse && studentAICourse;
+
+  useEffect(() => {
+    // Set initial state based on the course type
+    const initialIsAI = initialStudent.course.toLowerCase().includes('artificial intelligence');
+    setIsAICourse(initialIsAI);
+    setCurrentStudent(initialStudent);
+  }, [initialStudent]);
+
+  const handleCourseToggle = (checked: boolean) => {
+    if (!hasBothCourses) return;
+    
+    setIsAICourse(checked);
+    if (checked && studentAICourse) {
+      setCurrentStudent(studentAICourse);
+    } else if (!checked && studentPythonCourse) {
+      setCurrentStudent(studentPythonCourse);
+    }
+  };
+
+  const totalCredits = currentStudent.subjects.reduce((sum, subject) => sum + subject.credits, 0);
+  const percentage = (currentStudent.subjects.reduce((sum, subject) => sum + (subject.marks / subject.maxMarks) * subject.credits, 0) / totalCredits) * 100;
 
   const getGradeColor = (grade: string) => {
     switch (grade) {
@@ -32,28 +64,30 @@ export const StudentResult: React.FC<StudentResultProps> = ({ student, onBack })
     <div className="w-full max-w-4xl mx-auto animate-fade-in">
       {/* Header Card */}
       <Card className="glass-card p-6 mb-6">
-        {/* Course Toggle */}
-        <div className="flex justify-center mb-6">
-          <div className="glass-card p-4 inline-flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <Code className={`w-5 h-5 ${!isAICourse ? 'text-primary' : 'text-muted-foreground'}`} />
-              <span className={`font-medium ${!isAICourse ? 'text-primary' : 'text-muted-foreground'}`}>
-                Python
-              </span>
-            </div>
-            <Switch 
-              checked={isAICourse} 
-              disabled={true}
-              className="data-[state=checked]:bg-primary"
-            />
-            <div className="flex items-center gap-2">
-              <Brain className={`w-5 h-5 ${isAICourse ? 'text-primary' : 'text-muted-foreground'}`} />
-              <span className={`font-medium ${isAICourse ? 'text-primary' : 'text-muted-foreground'}`}>
-                AI
-              </span>
+        {/* Course Toggle - Only show if student has both courses */}
+        {hasBothCourses && (
+          <div className="flex justify-center mb-6">
+            <div className="glass-card p-4 inline-flex items-center gap-4">
+              <div className="flex items-center gap-2">
+                <Code className={`w-5 h-5 ${!isAICourse ? 'text-primary' : 'text-muted-foreground'}`} />
+                <span className={`font-medium ${!isAICourse ? 'text-primary' : 'text-muted-foreground'}`}>
+                  Python
+                </span>
+              </div>
+              <Switch 
+                checked={isAICourse} 
+                onCheckedChange={handleCourseToggle}
+                className="data-[state=checked]:bg-primary"
+              />
+              <div className="flex items-center gap-2">
+                <Brain className={`w-5 h-5 ${isAICourse ? 'text-primary' : 'text-muted-foreground'}`} />
+                <span className={`font-medium ${isAICourse ? 'text-primary' : 'text-muted-foreground'}`}>
+                  AI
+                </span>
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
           <div className="flex-shrink-0">
@@ -68,34 +102,34 @@ export const StudentResult: React.FC<StudentResultProps> = ({ student, onBack })
           
           <div className="flex-grow">
             <h1 className="text-2xl font-heading font-bold text-foreground mb-1">
-              {student.name}
+              {currentStudent.name}
             </h1>
             <p className="text-muted-foreground mb-2">
-              {student.registerNumber} • {student.course}
+              {currentStudent.registerNumber} • {currentStudent.course}
             </p>
             <div className="flex flex-wrap gap-2 mb-4">
               <Badge className="crystal-border">
                 <Calendar className="w-3 h-3 mr-1" />
-                {student.startDate} - {student.endDate}
+                {currentStudent.startDate} - {currentStudent.endDate}
               </Badge>
-              {student.batch && (
+              {currentStudent.batch && (
                 <Badge className="crystal-border">
                   <Clock className="w-3 h-3 mr-1" />
-                  {student.batch}
+                  {currentStudent.batch}
                 </Badge>
               )}
               <Badge className="crystal-border">
                 <Trophy className="w-3 h-3 mr-1" />
-                Grade: {student.finalGrade}
+                Grade: {currentStudent.finalGrade}
               </Badge>
               <Badge className="crystal-border">
                 <Target className="w-3 h-3 mr-1" />
-                {student.activeStatus}
+                {currentStudent.activeStatus}
               </Badge>
-              {student.certificateNumber && (
+              {currentStudent.certificateNumber && (
                 <Badge className="crystal-border">
                   <Award className="w-3 h-3 mr-1" />
-                  Cert: {student.certificateNumber}
+                  Cert: {currentStudent.certificateNumber}
                 </Badge>
               )}
             </div>
@@ -126,7 +160,7 @@ export const StudentResult: React.FC<StudentResultProps> = ({ student, onBack })
         
         <Card className="glass-card p-6 text-center">
           <div className="text-3xl font-bold text-primary mb-1">
-            {student.finalGrade}
+            {currentStudent.finalGrade}
           </div>
           <p className="text-muted-foreground">Final Grade</p>
           <Progress value={percentage} className="mt-3 h-2" />
@@ -161,7 +195,7 @@ export const StudentResult: React.FC<StudentResultProps> = ({ student, onBack })
               </tr>
             </thead>
             <tbody>
-              {student.subjects.map((subject, index) => (
+              {currentStudent.subjects.map((subject, index) => (
                 <tr 
                   key={subject.code} 
                   className="border-b border-border/50 hover:bg-secondary/20 transition-colors"
@@ -196,11 +230,11 @@ export const StudentResult: React.FC<StudentResultProps> = ({ student, onBack })
           <div className="flex justify-between items-center text-sm text-muted-foreground">
             <div className="flex gap-4">
               <span>Total Credits: {totalCredits}</span>
-              {student.overall && (
-                <span>Status: {student.overall}</span>
+              {currentStudent.overall && (
+                <span>Status: {currentStudent.overall}</span>
               )}
-              {student.activeStatus && (
-                <span>Progress: {student.activeStatus}</span>
+              {currentStudent.activeStatus && (
+                <span>Progress: {currentStudent.activeStatus}</span>
               )}
             </div>
             <Button 
