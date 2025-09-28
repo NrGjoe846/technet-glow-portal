@@ -46,7 +46,7 @@ export const sampleStudents: StudentData[] = [
       { name: "Test 3", code: "PY103", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
       { name: "Test 4", code: "PY104", marks: 25, maxMarks: 50, grade: "C+", credits: 2 },
       { name: "Test 5", code: "PY105", marks: 50, maxMarks: 50, grade: "A+", credits: 3 },
-      { name: "Viva Voice", code: "PY106", marks: 80, maxMarks: 100, grade: "A", credits: 1 }
+      { name: "Viva Voice", code: "PY106", marks: 80, maxMarks: 100, grade: "A", credits: 3 }
     ]
   },
   {
@@ -67,8 +67,8 @@ export const sampleStudents: StudentData[] = [
       { name: "Test 2", code: "PY102", marks: 40, maxMarks: 50, grade: "A", credits: 2 },
       { name: "Test 3", code: "PY103", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
       { name: "Test 4", code: "PY104", marks: 25, maxMarks: 50, grade: "C+", credits: 2 },
-      { name: "Test 5", code: "PY105", marks: 50, maxMarks: 50, grade: "A+", credits: 3 },
-      { name: "Viva Voice", code: "PY106", marks: 0, maxMarks: 100, grade: "F", credits: 1 }
+      { name: "Test 5", code: "PY105", marks: 50, maxMarks: 50, grade: "A+", credits: 2 },
+      { name: "Viva Voice", code: "PY106", marks: 90, maxMarks: 100, grade: "A+", credits: 3 }
     ]
   },
   {
@@ -89,8 +89,8 @@ export const sampleStudents: StudentData[] = [
       { name: "Test 2", code: "PY102", marks: 24, maxMarks: 50, grade: "C", credits: 2 },
       { name: "Test 3", code: "PY103", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
       { name: "Test 4", code: "PY104", marks: 25, maxMarks: 50, grade: "C+", credits: 2 },
-      { name: "Test 5", code: "PY105", marks: 45, maxMarks: 50, grade: "A", credits: 3 },
-      { name: "Viva Voice", code: "PY106", marks: 65, maxMarks: 100, grade: "B+", credits: 1 }
+      { name: "Test 5", code: "PY105", marks: 45, maxMarks: 50, grade: "A", credits: 2 },
+      { name: "Viva Voice", code: "PY106", marks: 65, maxMarks: 100, grade: "B+", credits: 3 }
     ]
   },
   {
@@ -111,8 +111,8 @@ export const sampleStudents: StudentData[] = [
       { name: "Test 2", code: "PY102", marks: 25, maxMarks: 50, grade: "C+", credits: 2 },
       { name: "Test 3", code: "PY103", marks: 25, maxMarks: 50, grade: "C+", credits: 2 },
       { name: "Test 4", code: "PY104", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
-      { name: "Test 5", code: "PY105", marks: 30, maxMarks: 50, grade: "B", credits: 3 },
-      { name: "Viva Voice", code: "PY106", marks: 70, maxMarks: 100, grade: "B+", credits: 1 }
+      { name: "Test 5", code: "PY105", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
+      { name: "Viva Voice", code: "PY106", marks: 70, maxMarks: 100, grade: "B+", credits: 3 }
     ]
   },
   {
@@ -133,8 +133,8 @@ export const sampleStudents: StudentData[] = [
       { name: "Test 2", code: "PY102", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
       { name: "Test 3", code: "PY103", marks: 40, maxMarks: 50, grade: "A", credits: 2 },
       { name: "Test 4", code: "PY104", marks: 25, maxMarks: 50, grade: "C+", credits: 2 },
-      { name: "Test 5", code: "PY105", marks: 50, maxMarks: 50, grade: "A+", credits: 3 },
-      { name: "Viva Voice", code: "PY106", marks: 60, maxMarks: 100, grade: "B", credits: 1 }
+      { name: "Test 5", code: "PY105", marks: 50, maxMarks: 50, grade: "A+", credits: 2 },
+      { name: "Viva Voice", code: "PY106", marks: 60, maxMarks: 100, grade: "B", credits: 3 }
     ]
   },
 
@@ -157,8 +157,8 @@ export const sampleStudents: StudentData[] = [
       { name: "Test 2", code: "PY102", marks: 40, maxMarks: 50, grade: "A", credits: 2 },
       { name: "Test 3", code: "PY103", marks: 40, maxMarks: 50, grade: "A", credits: 2 },
       { name: "Test 4", code: "PY104", marks: 50, maxMarks: 50, grade: "A+", credits: 2 },
-      { name: "Test 5", code: "PY105", marks: 50, maxMarks: 50, grade: "A+", credits: 3 },
-      { name: "Viva Voice", code: "PY106", marks: 90, maxMarks: 100, grade: "A+", credits: 1 }
+      { name: "Test 5", code: "PY105", marks: 50, maxMarks: 50, grade: "A+", credits: 2 },
+      { name: "Viva Voice", code: "PY106", marks: 90, maxMarks: 100, grade: "A+", credits: 3 }
     ]
   },
   {
@@ -179,8 +179,8 @@ export const sampleStudents: StudentData[] = [
       { name: "Test 2", code: "PY102", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
       { name: "Test 3", code: "PY103", marks: 10, maxMarks: 50, grade: "F", credits: 2 },
       { name: "Test 4", code: "PY104", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
-      { name: "Test 5", code: "PY105", marks: 45, maxMarks: 50, grade: "A", credits: 3 },
-      { name: "Viva Voice", code: "PY106", marks: 75, maxMarks: 100, grade: "A", credits: 1 }
+      { name: "Test 5", code: "PY105", marks: 45, maxMarks: 50, grade: "A", credits: 2 },
+      { name: "Viva Voice", code: "PY106", marks: 75, maxMarks: 100, grade: "A", credits: 3 }
     ]
   },
   {
@@ -201,8 +201,8 @@ export const sampleStudents: StudentData[] = [
       { name: "Test 2", code: "PY102", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
       { name: "Test 3", code: "PY103", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
       { name: "Test 4", code: "PY104", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
-      { name: "Test 5", code: "PY105", marks: 40, maxMarks: 50, grade: "A", credits: 3 },
-      { name: "Viva Voice", code: "PY106", marks: 70, maxMarks: 100, grade: "B+", credits: 1 }
+      { name: "Test 5", code: "PY105", marks: 40, maxMarks: 50, grade: "A", credits: 2 },
+      { name: "Viva Voice", code: "PY106", marks: 70, maxMarks: 100, grade: "B+", credits: 3 }
     ]
   },
   {
@@ -223,8 +223,8 @@ export const sampleStudents: StudentData[] = [
       { name: "Test 2", code: "PY102", marks: 50, maxMarks: 50, grade: "A+", credits: 2 },
       { name: "Test 3", code: "PY103", marks: 45, maxMarks: 50, grade: "A", credits: 2 },
       { name: "Test 4", code: "PY104", marks: 50, maxMarks: 50, grade: "A+", credits: 2 },
-      { name: "Test 5", code: "PY105", marks: 50, maxMarks: 50, grade: "A+", credits: 3 },
-      { name: "Viva Voice", code: "PY106", marks: 95, maxMarks: 100, grade: "A+", credits: 1 }
+      { name: "Test 5", code: "PY105", marks: 50, maxMarks: 50, grade: "A+", credits: 2 },
+      { name: "Viva Voice", code: "PY106", marks: 95, maxMarks: 100, grade: "A+", credits: 3 }
     ]
   },
   {
@@ -245,8 +245,8 @@ export const sampleStudents: StudentData[] = [
       { name: "Test 2", code: "PY102", marks: 30, maxMarks: 50, grade: "C", credits: 2 },
       { name: "Test 3", code: "PY103", marks: 15, maxMarks: 50, grade: "F", credits: 2 },
       { name: "Test 4", code: "PY104", marks: 15, maxMarks: 50, grade: "F", credits: 2 },
-      { name: "Test 5", code: "PY105", marks: 0, maxMarks: 50, grade: "F", credits: 3 },
-      { name: "Viva Voice", code: "PY106", marks: 0, maxMarks: 100, grade: "F", credits: 1 }
+      { name: "Test 5", code: "PY105", marks: 0, maxMarks: 50, grade: "F", credits: 2 },
+      { name: "Viva Voice", code: "PY106", marks: 50, maxMarks: 100, grade: "C+", credits: 3 }
     ]
   },
 
@@ -269,8 +269,8 @@ export const sampleStudents: StudentData[] = [
       { name: "Test 2", code: "PY102", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
       { name: "Test 3", code: "PY103", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
       { name: "Test 4", code: "PY104", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
-      { name: "Test 5", code: "PY105", marks: 45, maxMarks: 50, grade: "A", credits: 3 },
-      { name: "Viva Voice", code: "PY106", marks: 75, maxMarks: 100, grade: "A", credits: 1 }
+      { name: "Test 5", code: "PY105", marks: 45, maxMarks: 50, grade: "A", credits: 2 },
+      { name: "Viva Voice", code: "PY106", marks: 75, maxMarks: 100, grade: "A", credits: 3 }
     ]
   },
   {
@@ -291,8 +291,8 @@ export const sampleStudents: StudentData[] = [
       { name: "Test 2", code: "PY102", marks: 40, maxMarks: 50, grade: "A", credits: 2 },
       { name: "Test 3", code: "PY103", marks: 45, maxMarks: 50, grade: "A", credits: 2 },
       { name: "Test 4", code: "PY104", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
-      { name: "Test 5", code: "PY105", marks: 48, maxMarks: 50, grade: "A", credits: 3 },
-      { name: "Viva Voice", code: "PY106", marks: 80, maxMarks: 100, grade: "A", credits: 1 }
+      { name: "Test 5", code: "PY105", marks: 48, maxMarks: 50, grade: "A", credits: 2 },
+      { name: "Viva Voice", code: "PY106", marks: 80, maxMarks: 100, grade: "A", credits: 3 }
     ]
   },
   {
@@ -313,8 +313,8 @@ export const sampleStudents: StudentData[] = [
       { name: "Test 2", code: "PY102", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
       { name: "Test 3", code: "PY103", marks: 25, maxMarks: 50, grade: "C", credits: 2 },
       { name: "Test 4", code: "PY104", marks: 30, maxMarks: 50, grade: "B", credits: 2 },
-      { name: "Test 5", code: "PY105", marks: 40, maxMarks: 50, grade: "A", credits: 3 },
-      { name: "Viva Voice", code: "PY106", marks: 70, maxMarks: 100, grade: "B+", credits: 1 }
+      { name: "Test 5", code: "PY105", marks: 40, maxMarks: 50, grade: "A", credits: 2 },
+      { name: "Viva Voice", code: "PY106", marks: 70, maxMarks: 100, grade: "B+", credits: 3 }
     ]
   },
   {
@@ -335,8 +335,8 @@ export const sampleStudents: StudentData[] = [
       { name: "Test 2", code: "PY102", marks: 20, maxMarks: 50, grade: "D", credits: 2 },
       { name: "Test 3", code: "PY103", marks: 20, maxMarks: 50, grade: "D", credits: 2 },
       { name: "Test 4", code: "PY104", marks: 20, maxMarks: 50, grade: "D", credits: 2 },
-      { name: "Test 5", code: "PY105", marks: 25, maxMarks: 50, grade: "C", credits: 3 },
-      { name: "Viva Voice", code: "PY106", marks: 0, maxMarks: 100, grade: "F", credits: 1 }
+      { name: "Test 5", code: "PY105", marks: 25, maxMarks: 50, grade: "C", credits: 2 },
+      { name: "Viva Voice", code: "PY106", marks: 30, maxMarks: 100, grade: "C", credits: 3 }
     ]
   },
   {
@@ -357,8 +357,8 @@ export const sampleStudents: StudentData[] = [
       { name: "Test 2", code: "PY102", marks: 30, maxMarks: 50, grade: "C", credits: 2 },
       { name: "Test 3", code: "PY103", marks: 20, maxMarks: 50, grade: "D", credits: 2 },
       { name: "Test 4", code: "PY104", marks: 30, maxMarks: 50, grade: "C", credits: 2 },
-      { name: "Test 5", code: "PY105", marks: 0, maxMarks: 50, grade: "F", credits: 3 },
-      { name: "Viva Voice", code: "PY106", marks: 0, maxMarks: 100, grade: "F", credits: 1 }
+      { name: "Test 5", code: "PY105", marks: 0, maxMarks: 50, grade: "F", credits: 2 },
+      { name: "Viva Voice", code: "PY106", marks: 50, maxMarks: 100, grade: "C+", credits: 3 }
     ]
   },
 
@@ -381,8 +381,8 @@ export const sampleStudents: StudentData[] = [
       { name: "Test 2", code: "PY102", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
       { name: "Test 3", code: "PY103", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
       { name: "Test 4", code: "PY104", marks: 35, maxMarks: 50, grade: "B+", credits: 2 },
-      { name: "Test 5", code: "PY105", marks: 50, maxMarks: 50, grade: "A+", credits: 3 },
-      { name: "Viva Voice", code: "PY106", marks: 0, maxMarks: 100, grade: "Completed", credits: 1 }
+      { name: "Test 5", code: "PY105", marks: 50, maxMarks: 50, grade: "A+", credits: 2 },
+      { name: "Viva Voice", code: "PY106", marks: 0, maxMarks: 100, grade: "Completed", credits: 3 }
     ]
   }
 ];
